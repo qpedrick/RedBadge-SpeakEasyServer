@@ -1,7 +1,7 @@
 {
   "name": "speakeasy-server",
   "version": "1.0.0",
-  "description": "Application for The Speak Easy, allows members to create and view job postings and testimonials",
+  "description": "Application for The Speak Easy coworking space in indianapolis",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "dotenv": "^11.0.0",
     "express": "^4.17.2",
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.1",
