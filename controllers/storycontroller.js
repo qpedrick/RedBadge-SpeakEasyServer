@@ -13,12 +13,12 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/mine',  validateSession, async (req, res) => {
-    let {id} = req.user
+    const { id } = req.user
     try {
         const allStory = await StoryModel.findAll({
             where:
             {
-                id: id
+                userId: id
             }
         })
         res.status(201).json(allStory)

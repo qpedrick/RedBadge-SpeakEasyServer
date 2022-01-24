@@ -12,6 +12,21 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/mine',  validateSession, async (req, res) => {
+    const { id } = req.user
+    try {
+        const allJobs = await JobModel.findAll({
+            where:
+            {
+                userId: id
+            }
+        })
+        res.status(201).json(allJobs)
+    } catch(err) {
+        console.log(err)
+    }
+});
+
 router.post('/create', validateSession, async(req,res) => {
 
     const { id } = req.user
