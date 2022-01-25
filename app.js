@@ -16,7 +16,7 @@ app.use("/job", controllers.jobController);
 dbConnection.authenticate()
     .then(() => dbConnection.sync(/*{force: true}*/))
     .then(() => {
-        app.listen(7770, () => {
+        app.listen(process.env.PORT, () => {
             console.log(`[Server]: App is listening on ${process.env.PORT}.`);
         });
     })
