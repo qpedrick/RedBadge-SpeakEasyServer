@@ -137,23 +137,4 @@ router.delete("/:id", async (req,res) => {
     }
 })
 
-// Different requests for searching by a parameter
-
-    // router.get("/:email", async (req, res) => {
-    //     try {
-    //         const User = await UserModel.findOne({
-    //             where: {
-    //                 email: req.params.email
-    //             }
-    //         })
-    //         res.status(200).json({
-    //             message: User
-    //         })
-    //     } catch (err) {
-    //         res.status(500).json({
-    //             message: `${err}`
-    //         })
-    //     }
-    // })
-
 module.exports = router;
