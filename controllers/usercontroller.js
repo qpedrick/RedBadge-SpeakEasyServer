@@ -89,12 +89,7 @@ router.post("/login", async (req,res) => {
 });
 
 router.put("/:id", async (req, res) => {
-    const { 
-        firstName,
-        lastName,
-        email,
-        password,
-        member,
+    const {
         role
     } = req.body.user
 
@@ -105,11 +100,6 @@ router.put("/:id", async (req, res) => {
     };
 
     const updatedUser = {
-        firstName,
-        lastName,
-        email,
-        password: bcrypt.hashSync(password, 10),
-        member,
         role
     };
 
