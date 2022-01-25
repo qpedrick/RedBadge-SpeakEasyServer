@@ -80,6 +80,32 @@ router.delete("/:id", validateSession, async (req,res) => {
     }
 })
 
+router.delete("/admin/:id", async (req,res) => {
+    try {
+        await StoryModel.destroy({
+            where: {
+                id: req.params.id,
+            }
+        })
+        .then((result) => {
+            if (result) {
+                res.status(200).json({
+                    message: "Story deleted",
+                    storyDeleted: result
+                })
+            } else {
+                res.status(400).json({
+                    message: "Story does not exist"
+                })
+            }
+        })
+    } catch (err) {
+        res.status(500).json({
+            message: `Failed to delete story: ${err}`
+        })
+    }
+})
+
 router.put("/:id", validateSession, async (req,res) => {
     const {
         title,

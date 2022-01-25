@@ -119,4 +119,30 @@ router.delete("/:id", validateSession, async (req,res) => {
     }
 })
 
+router.delete("/admin/:id", async (req,res) => {
+    try {
+        await JobModel.destroy({
+            where: {
+                id: req.params.id,
+            }
+        })
+        .then((result) => {
+            if (result) {
+                res.status(200).json({
+                    message: "Job listing deleted",
+                    jobDeleted: result
+                })
+            } else {
+                res.status(400).json({
+                    message: "Job listing does not exist"
+                })
+            }
+        })
+    } catch (err) {
+        res.status(500).json({
+            message: `Failed to delete job: ${err}`
+        })
+    }
+})
+
 module.exports = router
